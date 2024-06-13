@@ -1,13 +1,23 @@
 package com.amoreira.for_um_ai.topic;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
+
+@Entity
+@Table(name = "topics")
 
 public class Topic {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String message;
+    @Column(name="creation_date")
     private LocalDate creationDate;
+    @Column(name="topic_status")
     private boolean topicStatus;
     private String author;
     private String course;
