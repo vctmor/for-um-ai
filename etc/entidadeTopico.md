@@ -1,12 +1,4 @@
-id
-titulo
-mensagem
-data de criação
-estado do tópico
-autor
-curso
 
-Add annotations to create Topic table in database.
 
 Cadastro de um novo tópico
 
