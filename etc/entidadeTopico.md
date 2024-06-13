@@ -6,7 +6,7 @@ estado do tópico
 autor
 curso
 
-
+Configure database connection and install dependencies
 
  <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -31,3 +31,4 @@ curso
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <optional>true</optional>
+    </dependency>
