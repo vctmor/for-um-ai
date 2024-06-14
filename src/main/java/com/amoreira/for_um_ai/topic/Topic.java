@@ -3,6 +3,7 @@ package com.amoreira.for_um_ai.topic;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 @Entity
 @Table(name = "topics")
 
@@ -25,7 +27,7 @@ public class Topic {
     @CreationTimestamp
     private LocalDate creationDate;
     @Column(name="topic_status")
-    private boolean topicStatus;
+    private boolean topicStatus = true;
     private String author;
     private String course;
 
@@ -35,10 +37,6 @@ public class Topic {
         this.author = topic.author();
         this.message = topic.message();
         this.course = topic.course();
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public void setId(Long id) {
@@ -69,7 +67,7 @@ public class Topic {
         this.creationDate = creationDate;
     }
 
-    public boolean isTopicStatus() {
+    public boolean getTopicStatus() {
         return topicStatus;
     }
 
