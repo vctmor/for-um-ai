@@ -1,10 +1,15 @@
 package com.amoreira.for_um_ai.topic;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
 
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "topics")
 
@@ -15,12 +20,22 @@ public class Topic {
     private Long id;
     private String title;
     private String message;
+
     @Column(name="creation_date")
+    @CreationTimestamp
     private LocalDate creationDate;
     @Column(name="topic_status")
     private boolean topicStatus;
     private String author;
     private String course;
+
+    public Topic(DataTopic topic){
+
+        this.title = topic.title();
+        this.author = topic.author();
+        this.message = topic.message();
+        this.course = topic.course();
+    }
 
     public Long getId() {
         return id;
