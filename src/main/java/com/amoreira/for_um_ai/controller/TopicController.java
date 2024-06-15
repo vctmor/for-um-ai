@@ -12,7 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("topic")
@@ -39,7 +41,15 @@ public class TopicController {
 
     }
 
-//    @GetMapping
+    @GetMapping("/{id}")
+    public Topic listId (@PathVariable Topic id){
+        System.out.println("ID: " + id);
+        var topic = repository.getReferenceById(id.getId());
+        System.out.println("ID Topic: " + topic);
+        return topic;
+    }
+//
+//    @GetMapping("/{id}")
 //    public List<DataListTopic> list(){
 //
 //        return repository.findAll()

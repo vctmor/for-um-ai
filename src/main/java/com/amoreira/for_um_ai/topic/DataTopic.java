@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record DataTopic(@Valid
+        @NotNull Long id,
         @NotBlank String author,
         @NotBlank String title,
         @NotBlank String message,

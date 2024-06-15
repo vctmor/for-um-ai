@@ -33,12 +33,16 @@ public class Topic {
 
     public Topic(DataTopic topic){
 
+        this.id = topic.id();
         this.title = topic.title();
         this.author = topic.author();
         this.message = topic.message();
         this.course = topic.course();
     }
 
+    public Long getId() {
+        return id;
+    }
     public void setId(Long id) {
         this.id = id;
     }
