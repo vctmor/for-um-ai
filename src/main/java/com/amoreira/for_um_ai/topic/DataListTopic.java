@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 public record DataListTopic(
+        Long id,
         String title,
         String message,
         LocalDate creationDate,
@@ -15,6 +16,7 @@ public record DataListTopic(
     public DataListTopic(Topic topic){
 
         this(
+                topic.getId(),
                 topic.getTitle(),
                 topic.getMessage(),
                 topic.getCreationDate(),

@@ -28,13 +28,14 @@ public class Topic {
     @CreationTimestamp
     private LocalDate creationDate;
     @Column(name="topic_status")
-    private boolean topicStatus = true;
+    private Boolean topicStatus;
     private String author;
     private String course;
 
     public Topic(DataTopic topic){
 
         this.id = topic.id();
+        this.topicStatus = true;
         this.title = topic.title();
         this.author = topic.author();
         this.message = topic.message();
@@ -117,9 +118,24 @@ public class Topic {
             if (data.message() != null)
                 this.message = data.message();
 
+            if (data.topicStatus() != null)
+                this.topicStatus = data.topicStatus();
+
+            if (data.creationDate() != null)
+                this.creationDate = data.creationDate();
+
             if (data.course() != null)
                 this.message = data.course();
         }
+
+    }
+        public void logicalDeletion(){
+
+        this.topicStatus = false;
+
+        }
+
+
 
 //        try {
 //
@@ -142,5 +158,7 @@ public class Topic {
 //
 //            System.out.println("Tópico não encontrado no banco de dados: " + e);
 //        }
-    }
+
+
+
 }

@@ -13,10 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("topic")
 public class TopicController {
@@ -56,6 +52,24 @@ public class TopicController {
         Topic topic = repository.getReferenceById(data.id());
         topic.dataUpdate(data);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable Long id){
+
+       repository.deleteById(id);
+
+    }
+
+//    @DeleteMapping("/{id}")
+//    @Transactional
+//    public void logicalDeletion(@PathVariable Long id){
+//
+//        Topic topic = repository.getReferenceById(id);
+//        topic.logicalDeletion();
+//    }
+
+
 //
 //    @GetMapping("/{id}")
 //    public List<DataListTopic> list(){
