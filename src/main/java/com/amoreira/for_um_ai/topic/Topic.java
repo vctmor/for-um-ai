@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -93,5 +94,53 @@ public class Topic {
 
     public void setCourse(String course) {
         this.course = course;
+    }
+
+
+
+    public void dataUpdate(DataUpdateTopic data) {
+
+        Optional<DataUpdateTopic> topic = Optional.ofNullable(data);
+
+        if (topic.isEmpty()) {
+
+            System.out.println("Tópico não encontrado no banco de dados.");
+
+        }else{
+
+            if (data.title() != null)
+                this.title = data.title();
+
+            if (data.author() != null)
+                this.author = data.author();
+
+            if (data.message() != null)
+                this.message = data.message();
+
+            if (data.course() != null)
+                this.message = data.course();
+        }
+
+//        try {
+//
+//            if (topic.isPresent()) {
+//
+//                if (data.title() != null)
+//                    this.title = data.title();
+//
+//                if (data.author() != null)
+//                    this.author = data.author();
+//
+//                if (data.message() != null)
+//                    this.message = data.message();
+//
+//                if (data.course() != null)
+//                    this.message = data.course();
+//            }
+//
+//        }catch (EntityNotFoundException e){
+//
+//            System.out.println("Tópico não encontrado no banco de dados: " + e);
+//        }
     }
 }

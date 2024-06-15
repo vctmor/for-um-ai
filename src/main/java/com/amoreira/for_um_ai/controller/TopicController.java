@@ -3,6 +3,7 @@ package com.amoreira.for_um_ai.controller;
 import com.amoreira.for_um_ai.repository.TopicRepository;
 import com.amoreira.for_um_ai.topic.DataTopic;
 import com.amoreira.for_um_ai.topic.DataListTopic;
+import com.amoreira.for_um_ai.topic.DataUpdateTopic;
 import com.amoreira.for_um_ai.topic.Topic;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
@@ -43,10 +44,17 @@ public class TopicController {
 
     @GetMapping("/{id}")
     public Topic listId (@PathVariable Topic id){
-        System.out.println("ID: " + id);
-        var topic = repository.getReferenceById(id.getId());
-        System.out.println("ID Topic: " + topic);
-        return topic;
+
+        return repository.getReferenceById(id.getId());
+
+    }
+
+    @PutMapping
+    @Transactional
+    public void update(@RequestBody @Valid DataUpdateTopic data){
+
+        Topic topic = repository.getReferenceById(data.id());
+        topic.dataUpdate(data);
     }
 //
 //    @GetMapping("/{id}")
