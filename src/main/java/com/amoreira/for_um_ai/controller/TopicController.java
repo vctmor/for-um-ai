@@ -1,10 +1,10 @@
 package com.amoreira.for_um_ai.controller;
 
 import com.amoreira.for_um_ai.repository.TopicRepository;
-import com.amoreira.for_um_ai.topic.DataTopic;
-import com.amoreira.for_um_ai.topic.DataListTopic;
-import com.amoreira.for_um_ai.topic.DataUpdateTopic;
-import com.amoreira.for_um_ai.topic.Topic;
+import com.amoreira.for_um_ai.domain.topic.DataTopic;
+import com.amoreira.for_um_ai.domain.topic.DataListTopic;
+import com.amoreira.for_um_ai.domain.topic.DataUpdateTopic;
+import com.amoreira.for_um_ai.domain.topic.Topic;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.web.PageableDefault;

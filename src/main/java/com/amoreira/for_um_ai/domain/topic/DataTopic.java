@@ -1,4 +1,4 @@
-package com.amoreira.for_um_ai.topic;
+package com.amoreira.for_um_ai.domain.topic;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

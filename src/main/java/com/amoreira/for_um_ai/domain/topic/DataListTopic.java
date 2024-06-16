@@ -1,6 +1,4 @@
-package com.amoreira.for_um_ai.topic;
-
-import jakarta.validation.constraints.NotBlank;
+package com.amoreira.for_um_ai.domain.topic;
 
 import java.time.LocalDate;
 
