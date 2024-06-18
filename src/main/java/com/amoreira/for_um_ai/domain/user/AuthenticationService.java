@@ -1,6 +1,5 @@
-package com.amoreira.for_um_ai.domain.topic.user;
+package com.amoreira.for_um_ai.domain.user;
 
-import com.amoreira.for_um_ai.repository.UserRepositry;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -1,4 +1,4 @@
-package com.amoreira.for_um_ai.domain.topic.user;
+package com.amoreira.for_um_ai.domain.user;
 
 import jakarta.persistence.*;
 import lombok.*;
