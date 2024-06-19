@@ -2,6 +2,7 @@ package com.amoreira.for_um_ai.controller;
 
 import com.amoreira.for_um_ai.domain.user.DataAuthentication;
 import com.amoreira.for_um_ai.domain.user.User;
+import com.amoreira.for_um_ai.infra.security.DataTokenJWT;
 import com.amoreira.for_um_ai.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,9 @@ public class AutentificationController {
 
         var authentification = manager.authenticate(token);
 
-        return ResponseEntity.ok(tokenService.generateToken((User) authentification.getPrincipal()));
+        var tokenJWT = tokenService.generateToken((User) authentification.getPrincipal());
+
+        return ResponseEntity.ok(new DataTokenJWT(tokenJWT));
 
     }
 }
