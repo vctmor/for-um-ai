@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity(name="User")
 @Table(name="users")
-@Getter
+//@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,9 +21,13 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String login;
     private String password;
 
+    public String login() {
+        return login;
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));

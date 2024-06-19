@@ -1,6 +1,8 @@
 package com.amoreira.for_um_ai.controller;
 
 import com.amoreira.for_um_ai.domain.user.DataAuthentication;
+import com.amoreira.for_um_ai.domain.user.User;
+import com.amoreira.for_um_ai.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,9 @@ public class AutentificationController {
     @Autowired
     private AuthenticationManager manager;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping
     public ResponseEntity login(@RequestBody @Valid DataAuthentication data){
 
@@ -25,7 +30,7 @@ public class AutentificationController {
 
         var authentification = manager.authenticate(token);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(tokenService.generateToken((User) authentification.getPrincipal()));
 
     }
 }
