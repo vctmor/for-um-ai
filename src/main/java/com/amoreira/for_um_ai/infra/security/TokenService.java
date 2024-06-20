@@ -36,6 +36,22 @@ public class TokenService {
       }
     }
 
+    public String getSubject(String tokenJWT){
+
+        try{
+            var algorithm = Algorithm.HMAC256(secret);
+
+            return JWT.require(algorithm)
+                    .withIssuer("API for-um-ai")
+                    .build()
+                    .verify(tokenJWT)
+                    .getSubject();
+
+        } catch (JWTCreationException e ) {
+            throw new RuntimeException("token JWT inválido ou expirado!");
+        }
+    }
+
     private Instant expirationDate(){
 
         return LocalDateTime.now().plusHours(2)
